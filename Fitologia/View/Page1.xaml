@@ -1,0 +1,606 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Fitologia.View"
+    xmlns:common="using:Fitologia.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:Fitologia.ViewModel"
+    x:Name="pageRoot"
+    x:Class="Fitologia.View.Page1"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModel:PageVM/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <Style x:Key="ContextControlItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Width" Value="32"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Grid Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates" >
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="PointerOver"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates" >
+                                    <VisualState x:Name="Unselected" />
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="fillColor" Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" BeginTime="00:00:00" Duration="0" To="Teal" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedUnfocused">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="fillColor" Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" BeginTime="00:00:00" Duration="0"  To="Teal" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedPressed">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="fillColor" Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" BeginTime="00:00:00" Duration="0"  To="Teal" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedPointerOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="fillColor" Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)" BeginTime="00:00:00" Duration="0"  To="Teal" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Rectangle x:Name="fillColor" IsHitTestVisible="False" Width="32" Height="20" Fill="#FF379595" Margin="5,0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Hub x:Name="hub" Background="Teal">
+        <Hub.Resources>
+            <Style x:Key="HubStyle" TargetType="Hub">
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                <Setter Property="Padding" Value="40,60,40,0"/>
+                <Setter Property="IsTabStop" Value="False"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Hub">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="OrientationStates">
+                                        <VisualState x:Name="Horizontal"/>
+                                        <VisualState x:Name="Vertical">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="HorizontalScrollMode" Storyboard.TargetName="ScrollViewer">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Disabled"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="HorizontalScrollBarVisibility" Storyboard.TargetName="ScrollViewer">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Disabled"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="VerticalScrollMode" Storyboard.TargetName="ScrollViewer">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Auto"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="VerticalScrollBarVisibility" Storyboard.TargetName="ScrollViewer">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Auto"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Row)" Storyboard.TargetName="ScrollViewer">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.RowSpan)" Storyboard.TargetName="ScrollViewer">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="ScrollViewer">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="0,20,0,0"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="Panel">
+                                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <x:Double>NaN</x:Double>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <ScrollViewer x:Name="ScrollViewer" HorizontalScrollMode="Auto" HorizontalSnapPointsAlignment="Near" HorizontalSnapPointsType="Optional" HorizontalScrollBarVisibility="Auto" Grid.RowSpan="2" VerticalSnapPointsType="Optional" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled" VerticalSnapPointsAlignment="Near" ZoomMode="Disabled">
+                                        <ItemsStackPanel x:Name="Panel" CacheLength="20" Orientation="{TemplateBinding Orientation}" Margin="0" Height="800"/>
+                                    </ScrollViewer>
+                                    <Border x:Name="HeaderHost" Padding="{TemplateBinding Padding}" Grid.Row="0">
+                                        <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" FontWeight="{ThemeResource HubHeaderThemeFontWeight}" FontSize="{ThemeResource HubHeaderThemeFontSize}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" OpticalMarginAlignment="TrimSideBearings" TextLineBounds="Tight"/>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="GridViewItemStyle" TargetType="GridViewItem">
+                <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+                <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="TabNavigation" Value="Local"/>
+                <Setter Property="IsHoldingEnabled" Value="True"/>
+                <Setter Property="Margin" Value="0,0,2,2"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="GridViewItem">
+                            <GridViewItemPresenter ContentMargin="4" ContentTransitions="{TemplateBinding ContentTransitions}" DragOpacity="{ThemeResource ListViewItemDragThemeOpacity}" DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" PointerOverBackgroundMargin="1" ReorderHintOffset="{ThemeResource ListViewItemReorderHintThemeOffset}" SelectionCheckMarkVisualEnabled="True" SelectedBorderThickness="{ThemeResource GridViewItemCompactSelectedBorderThemeThickness}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Foreground="{x:Null}"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Hub.Resources>
+        <Hub.Style>
+            <StaticResource ResourceKey="HubStyle"/>
+        </Hub.Style>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="Views">
+                <VisualState x:Name="Horizontal" />
+                <VisualState x:Name="Vertical">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Hub.Orientation)" Storyboard.TargetName="hub">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Orientation>Vertical</Orientation>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="hubSection">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                	<x:Double>680</x:Double>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Snapped">
+                    <Storyboard/>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <HubSection x:Name="hubSection">
+            <HubSection.Resources>
+                <DataTemplate x:Key="header">
+                    <Grid Width="450" HorizontalAlignment="Left">
+                        <TextBlock TextWrapping="WrapWholeWords" Text="{Binding Tema.Titulo}" VerticalAlignment="Bottom" Style="{StaticResource HeaderTextBlockStyle}" FontSize="53.333" LineHeight="0" Width="450" Margin="20,0" FontWeight="Normal" FontStyle="Italic"/>
+                    </Grid>
+                </DataTemplate>
+                <Style x:Key="HubSection" TargetType="HubSection">
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                    <Setter Property="VerticalContentAlignment" Value="Top"/>
+                    <Setter Property="Padding" Value="40,40,40,44"/>
+                    <Setter Property="IsTabStop" Value="False"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="HubSection">
+                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Margin="5,0,0,0" HorizontalAlignment="Left">
+                                    <Border.Resources>
+                                        <ControlTemplate x:Key="HeaderButtonTemplate" TargetType="Button">
+                                            <Grid Background="Transparent">
+                                                <VisualStateManager.VisualStateGroups>
+                                                    <VisualStateGroup x:Name="CommonStates">
+                                                        <VisualState x:Name="Normal"/>
+                                                        <VisualState x:Name="PointerOver">
+                                                            <Storyboard>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource HubSectionHeaderPointerOverForegroundThemeBrush}"/>
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="IsHeaderInteractiveMarker">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource HubSectionHeaderPointerOverForegroundThemeBrush}"/>
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Pressed">
+                                                            <Storyboard>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource HubSectionHeaderPressedForegroundThemeBrush}"/>
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="IsHeaderInteractiveMarker">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource HubSectionHeaderPressedForegroundThemeBrush}"/>
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Disabled">
+                                                            <Storyboard>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonDisabledForegroundThemeBrush}"/>
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="IsHeaderInteractiveMarker">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonDisabledForegroundThemeBrush}"/>
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                    </VisualStateGroup>
+                                                    <VisualStateGroup x:Name="FocusStates">
+                                                        <VisualState x:Name="Focused">
+                                                            <Storyboard>
+                                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualWhite"/>
+                                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualBlack"/>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Unfocused"/>
+                                                        <VisualState x:Name="PointerFocused"/>
+                                                    </VisualStateGroup>
+                                                    <VisualStateGroup x:Name="IsHeaderInteractiveStates">
+                                                        <VisualState x:Name="HeaderInteractive">
+                                                            <Storyboard>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="IsHeaderInteractiveMarker">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="HeaderNonInteractive"/>
+                                                    </VisualStateGroup>
+                                                    <VisualStateGroup x:Name="FlowDirectionStates">
+                                                        <VisualState x:Name="LeftToRight"/>
+                                                        <VisualState x:Name="RightToLeft">
+                                                            <Storyboard>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Text" Storyboard.TargetName="IsHeaderInteractiveMarker">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="  &#xE26C;"/>
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                    </VisualStateGroup>
+                                                </VisualStateManager.VisualStateGroups>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" OpticalMarginAlignment="TrimSideBearings" TextLineBounds="Tight" VerticalAlignment="Center"/>
+                                                    <TextBlock x:Name="IsHeaderInteractiveMarker" AutomationProperties.AccessibilityView="Raw" FontFamily="{ThemeResource SymbolThemeFontFamily}" OpticalMarginAlignment="TrimSideBearings" TextLineBounds="Tight" Text=" &#xE26B;" Visibility="Collapsed" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                                <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Margin="-5" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="{ThemeResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1"/>
+                                                <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Margin="-5" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Border.Resources>
+                                    <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Width="Auto" Height="800">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="400"/>
+                                        </Grid.ColumnDefinitions>
+                                        <ContentPresenter x:Name="ContentPresenter" 
+                                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                          HorizontalAlignment="Right" 
+                                                          Margin="0"
+                                                          Grid.Column="1"/>
+                                        <Border Margin="39,562,135,150" 
+                                                VerticalAlignment="Center" 
+                                                BorderThickness="0"
+                                                HorizontalAlignment="Center" 
+                                                Grid.ColumnSpan="2" Width="651">
+                                            <Border.Background>
+                                                <SolidColorBrush Color="DarkSlateGray" Opacity="0.75"/>
+                                            </Border.Background>
+                                            <Button x:Name="HeaderButton" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" FontWeight="{ThemeResource HubSectionHeaderThemeFontWeight}" FontSize="{ThemeResource HubSectionHeaderThemeFontSize}" Template="{StaticResource HeaderButtonTemplate}" Background="{x:Null}" Padding="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="0" Margin="0,10,0,20"/>
+                                        </Border>
+                                        <Button x:Name="backButton" 
+                                        	Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+                                        	Style="{StaticResource NavigationBackButtonNormalStyle}"
+                                        	VerticalAlignment="Top"
+                                        	AutomationProperties.Name="Back"
+                                        	AutomationProperties.AutomationId="BackButton"
+                                        	AutomationProperties.ItemType="Navigation Button" RenderTransformOrigin="0.5,0.5" Margin="39,31,0,0"/>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </HubSection.Resources>
+            <HubSection.Style>
+                <StaticResource ResourceKey="HubSection"/>
+            </HubSection.Style>
+            <HubSection.HeaderTemplate>
+                <StaticResource ResourceKey="header"/>
+            </HubSection.HeaderTemplate>
+            <DataTemplate>
+                <Grid Height="700">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1.5*"/>
+                    </Grid.RowDefinitions>
+                    <Rectangle HorizontalAlignment="Left" Height="330" Stroke="White" StrokeThickness="5" VerticalAlignment="Top" Width="400" Margin="0,-50,0,0">
+                        <Rectangle.Fill>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="ms-appx:///Assets/Image/DSC02780.JPG"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle HorizontalAlignment="Left" Height="472" Stroke="White" StrokeThickness="5" VerticalAlignment="Top" Width="400" Margin="0,278,0,-50" Grid.RowSpan="2">
+                        <Rectangle.Fill>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="ms-appx:///Assets/Image/Heliconia_rostrata1.jpg"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Ellipse HorizontalAlignment="Left" Height="340" Stroke="White" VerticalAlignment="Top" Width="340" Margin="-155,110,0,0" Grid.RowSpan="2" StrokeThickness="5">
+                        <Ellipse.Fill>
+                            <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/Image/Kantuta_Bolivia.jpg"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+            </DataTemplate>
+        </HubSection>
+        <HubSection Background="WhiteSmoke" 
+                    Margin="-5,0,0,0" 
+                    x:Name="Introduccion">
+            <HubSection.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Tema.Subtitulos[0].Titulo}"
+                               Foreground="Teal" FontSize="40"/>
+                </DataTemplate>
+            </HubSection.HeaderTemplate>
+            <DataTemplate>
+                <GridView SelectionMode="None">
+                    <ScrollViewer Margin="10,0,16,0" HorizontalScrollMode="Disabled" VerticalScrollMode="Auto" ZoomMode="Disabled">
+                        <GridView ItemsSource="{Binding Tema.Subtitulos[0].Contenido}"
+            				SelectionMode="None"
+            				IsSwipeEnabled="False"
+            			Height="490" Width="570">
+                            <GridView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"
+            							Style="{StaticResource HeaderTextBlockStyle}"
+            							Width="550"
+            							Foreground="SlateGray"
+            							FontSize="20"
+            							Margin="10,0,0,0"
+            							TextAlignment="Justify" LineHeight="20"/>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                            <GridView.ItemsPanel>
+                                <ItemsPanelTemplate ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                            </GridView.ItemsPanel>
+                        </GridView>
+                    </ScrollViewer>
+                    <Grid>
+                        <FlipView x:Name="flipView" 
+                                  ItemsSource="{Binding Tema.Subtitulos[0].Image}"
+                                  VerticalAlignment="Top">
+                            <FlipView.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding}"/>
+                                </DataTemplate>
+                            </FlipView.ItemTemplate>
+                            <FlipView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </FlipView.ItemsPanel>
+                        </FlipView>
+                        <ListBox Height="100"
+                                 VerticalAlignment="Bottom"
+                                 SelectedItem="{Binding SelectedItem, ElementName=flipView, Mode=TwoWay}"
+                                 ItemsSource="{Binding Tema.Subtitulos[0].Image}"
+                                 ItemContainerStyle="{StaticResource ContextControlItemStyle}"
+                                 IsTabStop="False"
+                                 Padding="20"
+                                 x:Name="listControl">
+                            <ListBox.Background>
+                                <SolidColorBrush Color="Teal" Opacity="0.5"/>
+                            </ListBox.Background>
+
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Right"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                    </Grid>
+                </GridView>
+            </DataTemplate>
+        </HubSection>
+        <HubSection Background="White" Margin="-5,0,0,0" >
+            <HubSection.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Tema.Subtitulos[1].Titulo}"
+                               Foreground="Teal" FontSize="40"/>
+                </DataTemplate>
+            </HubSection.HeaderTemplate>
+            <DataTemplate>
+                <GridView SelectionMode="None">
+                    <ScrollViewer Margin="10,0,16,0" HorizontalScrollMode="Disabled" VerticalScrollMode="Auto" ZoomMode="Disabled">
+                        <GridView ItemsSource="{Binding Tema.Subtitulos[1].Contenido}"
+                			SelectionMode="None"
+                			IsSwipeEnabled="False"
+                			Height="440" Width="570">
+                            <GridView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"
+                						Style="{StaticResource SubheaderTextBlockStyle}"
+                						Width="550"
+                						Foreground="SlateGray"
+                						FontSize="16"
+                						Margin="10,0,0,0"
+                						TextAlignment="Justify" LineHeight="20"/>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                            <GridView.ItemsPanel>
+                                <ItemsPanelTemplate ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                            </GridView.ItemsPanel>
+                        </GridView>
+                    </ScrollViewer>
+                    <Grid>
+                        <FlipView x:Name="flipView" 
+                                  ItemsSource="{Binding Tema.Subtitulos[1].Image}"
+                                  VerticalAlignment="Top">
+                            <FlipView.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding}"/>
+                                </DataTemplate>
+                            </FlipView.ItemTemplate>
+                            <FlipView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </FlipView.ItemsPanel>
+                        </FlipView>
+                        <ListBox Height="100"
+                                 VerticalAlignment="Bottom"
+                                 SelectedItem="{Binding SelectedItem, ElementName=flipView, Mode=TwoWay}"
+                                 ItemsSource="{Binding Tema.Subtitulos[1].Image}"
+                                 ItemContainerStyle="{StaticResource ContextControlItemStyle}"
+                                 IsTabStop="False"
+                                 Padding="20"
+                                 x:Name="listControl">
+                            <ListBox.Background>
+                                <SolidColorBrush Color="Teal" Opacity="0.5"/>
+                            </ListBox.Background>
+
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Right"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                    </Grid>
+                </GridView>
+            </DataTemplate>
+        </HubSection>
+        <HubSection Background="White" Margin="-5,0,0,0">
+            <HubSection.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Tema.Subtitulos[2].Titulo}"
+                               Foreground="Teal" FontSize="40"/>
+                </DataTemplate>
+            </HubSection.HeaderTemplate>
+            <DataTemplate>
+                <GridView SelectionMode="None">
+                    <ScrollViewer Margin="10,0,16,0" HorizontalScrollMode="Disabled" VerticalScrollMode="Auto" ZoomMode="Disabled">
+                        <GridView ItemsSource="{Binding Tema.Subtitulos[2].Contenido}"
+            				SelectionMode="None"
+            				IsSwipeEnabled="False"
+            			Height="496" Width="570">
+                            <GridView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"
+            							Style="{StaticResource SubheaderTextBlockStyle}"
+            							Width="550"
+            							Foreground="SlateGray"
+            							FontSize="16"
+            							Margin="10,0,0,0"
+            							TextAlignment="Justify" LineHeight="20"/>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                            <GridView.ItemsPanel>
+                                <ItemsPanelTemplate ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                            </GridView.ItemsPanel>
+                        </GridView>
+                    </ScrollViewer>
+                    <Grid>
+                        <FlipView x:Name="flipView" 
+                                  ItemsSource="{Binding Tema.Subtitulos[2].Image}"
+                                  VerticalAlignment="Top">
+                            <FlipView.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding}"/>
+                                </DataTemplate>
+                            </FlipView.ItemTemplate>
+                            <FlipView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </FlipView.ItemsPanel>
+                        </FlipView>
+                        <ListBox Height="100"
+                                 VerticalAlignment="Bottom"
+                                 SelectedItem="{Binding SelectedItem, ElementName=flipView, Mode=TwoWay}"
+                                 ItemsSource="{Binding Tema.Subtitulos[2].Image}"
+                                 ItemContainerStyle="{StaticResource ContextControlItemStyle}"
+                                 IsTabStop="False"
+                                 Padding="20"
+                                 x:Name="listControl">
+                            <ListBox.Background>
+                                <SolidColorBrush Color="Teal" Opacity="0.5"/>
+                            </ListBox.Background>
+
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Right"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                    </Grid>
+                </GridView>
+            </DataTemplate>
+        </HubSection>
+        <HubSection Background="White" Margin="-5,0,0,0">
+            <HubSection.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Tema.Subtitulos[3].Titulo}"
+                               Foreground="Teal" FontSize="40"/>
+                </DataTemplate>
+            </HubSection.HeaderTemplate>
+            <DataTemplate>
+                <GridView SelectionMode="None">
+                    <ScrollViewer Margin="10,0,16,0" HorizontalScrollMode="Disabled" VerticalScrollMode="Auto" ZoomMode="Disabled">
+                        <GridView ItemsSource="{Binding Tema.Subtitulos[3].Contenido}"
+            				SelectionMode="None"
+            				IsSwipeEnabled="False"
+            			Height="510" Width="570">
+                            <GridView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"
+            							Style="{StaticResource SubheaderTextBlockStyle}"
+            							Width="550"
+            							Foreground="SlateGray"
+            							FontSize="16"
+            							Margin="10,0,0,0"
+            							TextAlignment="Justify" LineHeight="20"/>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                            <GridView.ItemsPanel>
+                                <ItemsPanelTemplate ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                            </GridView.ItemsPanel>
+                        </GridView>
+                    </ScrollViewer>
+                    <Grid>
+                        <FlipView x:Name="flipView" 
+                                  ItemsSource="{Binding Tema.Subtitulos[3].Image}"
+                                  VerticalAlignment="Top">
+                            <FlipView.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding}"/>
+                                </DataTemplate>
+                            </FlipView.ItemTemplate>
+                            <FlipView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel/>
+                                </ItemsPanelTemplate>
+                            </FlipView.ItemsPanel>
+                        </FlipView>
+                        <ListBox Height="100"
+                                 VerticalAlignment="Bottom"
+                                 SelectedItem="{Binding SelectedItem, ElementName=flipView, Mode=TwoWay}"
+                                 ItemsSource="{Binding Tema.Subtitulos[3].Image}"
+                                 ItemContainerStyle="{StaticResource ContextControlItemStyle}"
+                                 IsTabStop="False"
+                                 Padding="20"
+                                 x:Name="listControl">
+                            <ListBox.Background>
+                                <SolidColorBrush Color="Teal" Opacity="0.5"/>
+                            </ListBox.Background>
+
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Right"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                    </Grid>
+                </GridView>
+            </DataTemplate>
+        </HubSection>
+    </Hub>
+</Page>

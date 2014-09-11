@@ -1,0 +1,147 @@
+﻿{"Groups":[
+  {
+    "UniqueId": "Group-1",
+    "Title": "Partes de la planta",
+    "ImagePath": "Assets/DarkGray.png",
+    "Description" : "Las plantas son seres vivos que producen su propio alimento mediante el proceso de la fotosíntesis. Ellas captan la energía de la luz del sol a través de la clorofila y convierten el dióxido de carbono y el agua en azúcares que utilizan como fuente de energía. ",
+    "Items":
+    [
+      {
+        "UniqueId": "Group-1-Item-1",
+        "Title": "Raíz",
+        "ImagePath": "Assets/PartesPlanta/raiz.jpg",
+        "Description" : "La raíz es el órgano que se encuentra debajo de la tierra. Su función es sujetar la planta y absorber las sales minerales y el agua del suelo.",
+        "Subpartes": 
+        [
+            {
+                "UniqueId":  "asd0",
+                "Title": "Raiz principal",
+                "ImagePath": "Assets/PartesPlanta/raiz2.jpg",
+                "Description" : "Toda raíz consta de raíz principal que es la parte más gruesa."
+            },
+            {
+                "UniqueId":  "asd1",
+                "Title": "Raíces secundarias",
+                "ImagePath": "Assets/PartesPlanta/raiz3.jpg",
+                "Description" : "Las raíces secundarias salen de la raíz principal y no son tan gruesas como aquella."
+            },
+            {
+                "UniqueId":  "asd31",
+                "Title": "Caliptra",
+                "ImagePath": "Assets/PartesPlanta/raiz4.jpg",
+                "Description" : "La caliptra o cofia es la protección con la que terminan las raíces. Sirve para que las raíces puedan perforar el suelo."
+            },
+            {
+                "UniqueId":  "asd167",
+                "Title": "Pelos absorventes",
+                "ImagePath": "Assets/PartesPlanta/raiz5.jpg",
+                "Description" : "Los pelos absorbentes son unos filamentos diminutos que recubren las raíces y tienen la función de absorber el agua y las sales minerales del suelo."
+            }
+        ]
+      },
+      {
+        "UniqueId": "Group-1-Item-2",
+        "Title": "Tallo",
+        "ImagePath": "Assets/PartesPlanta/tallo.jpg",
+        "Description" : "El tallo es la parte de la planta opuesta a la raíz. Generalmente, crece en sentido vertical hacia la luz del sol. A partir del tallo, se desarrollan las ramas en donde nacerán las hojas, las flores y los frutos. Por el interior del tallo circula la savia, constituida por la mezcla de agua y minerales que la planta absorbe del suelo.",
+         "Subpartes": 
+        [
+            {
+                "UniqueId":  "asd00",
+                "Title": "Tallo Principal",
+                "ImagePath": "Assets/PartesPlanta/tallo2.jpg",
+                "Description" : "El tallo principal es el tallo más importante de la planta. De él comienzan a salir los tallos secundarios."
+            },
+            {
+                "UniqueId":  "asd10",
+                "Title": "Nudo",
+                "ImagePath": "Assets/PartesPlanta/tallo3.jpg",
+                "Description" : "Los nudos son unos engrosamientos situados en los tallos . A su altura es donde nacen las hojas."
+            }
+        ]
+      },
+      {
+        "UniqueId": "Group-1-Item-3",
+        "Title": "Hoja",
+        "ImagePath": "Assets/PartesPlanta/hoja2.jpg",
+        "Description" : "La hoja es una de las partes más importantes de los vegetales puesto que es la parte de la planta que está encargada de realizar la fotosíntesis , así como la respiración y la transpiración vegetal. Algunas hojas constituyen alimentos fundamentales para el hombre ya que son capaces de almacenar vitaminas, minerales, azúcar u otros nutrientes necesarios para la salud. Las hojas de las espinacas son un buen ejemplo de ello. Otras hojas se utilizan para dar sabor a los alimentos, como la hoja del laurel o para realizar preparados medicinales, como las hojas de la menta",
+        "Subpartes": 
+        [
+            {
+                "UniqueId":  "asd02",
+                "Title": "Limbo",
+                "ImagePath": "Assets/PartesPlanta/hoja.jpg",
+                "Description" : "La hoja es una de las partes más importantes de los vegetales puesto que es la parte de la planta que está encargada de realizar la fotosíntesis , así como la respiración y la transpiración vegetal. El borde o extremo de la hoja se llama margen. El limbo se une a la rama a través de una especie de rabito que se llama pecíolo, aunque hay algunas hojas que carecen de pecíolo."
+            },
+            {
+                "UniqueId":  "asd12",
+                "Title": "Haz",
+                "ImagePath": "Assets/PartesPlanta/hoja3.jpg",
+                "Description" : "A la parte superior de la hoja la llamamos haz."
+            },
+            {
+                "UniqueId":  "asd02",
+                "Title": "Envés",
+                "ImagePath": "Assets/PartesPlanta/hoja4.jpg",
+                "Description" : "A la parte inferior de la hoja la llamamos envés"
+            },
+            {
+                "UniqueId":  "asd12",
+                "Title": "Margen",
+                "ImagePath": "Assets/PartesPlanta/hoja5.jpg",
+                "Description" : "El borde o extremo de la hoja se llama margen. "
+            },
+            {
+                "UniqueId":  "asd02",
+                "Title": "Pecíolo",
+                "ImagePath": "Assets/PartesPlanta/hoja6.jpg",
+                "Description" : "(solo existe en algunos)"
+            }
+            
+        ]
+      },
+      {
+        "UniqueId": "Group-1-Item-4",
+        "Title": "Flor",
+        "ImagePath": "Assets/PartesPlanta/flordenoche.jpg",
+        "Description" : "La flor es el órgano reproductor de las plantas. A partir de ella, se producen los frutos y las semillas. Las semillas germinan y originan una nueva planta.",
+        "Subpartes": 
+        [
+            {
+                "UniqueId":  "asd03",
+                "Title": "Cáliz",
+                "ImagePath": "Assets/PartesPlanta/flor.jpg",
+                "Description" : "El cáliz es la parte verde de la flor. Tiene una consistencia más fuerte que la corola y a sus piezas les llamamos sépalos."
+            },
+            {
+                "UniqueId":  "asd13",
+                "Title": "Corola",
+                "ImagePath": "Assets/PartesPlanta/flor2.jpg",
+                "Description" : "La corola está formada por los pétalos que son las piezas coloreadas de las flores. Su función es atraer a los animales portadores del polen. La corola es la parte de la flor que convierte a este órgano en algo tan atractivo para los insectos y el principal motivo por el cual cultivamos las flores de jardinería."
+            },
+            {
+                "UniqueId":  "asd03",
+                "Title": "Androceo",
+                "ImagePath": "Assets/PartesPlanta/flor3.jpg",
+                "Description" : "Dentro del cáliz , y rodeado por la corola, se encuentra el androceo o parte masculina de la flor. El androceo está constituido por los estambres que unas hojas que se han transformado con la finalidad de llevar el polen. Cada estambre consta de un filamento, que es el fragmento mas alargado; y la antera que es una ' especie de bolsa ', donde están encerrados los granos de polen."
+            },
+            {
+                "UniqueId":  "asd13",
+                "Title": "Gineceo",
+                "ImagePath": "Assets/PartesPlanta/flor4.jpg",
+                "Description" : "Rodeado por el androceo, se encuentra el gineceo. El gineceo es la parte femenina de la flor. Esta formado por uno o varios pistilos que son órganos parecidos a una botella. Cada pistilo consta de un estigma que está situado en la parte superior en forma de receptáculo para recoger el polen. El estilo que sirve de tubo conductor hacia el ovario El ovario que es la parte inferior más ampliada y donde se encuentran los óvulos que han de ser fecundados por el polen masculino."
+            },
+            {
+                "UniqueId":  "asd03",
+                "Title": "Pedúnculo floral",
+                "ImagePath": "Assets/PartesPlanta/flor5.jpg",
+                "Description" : "El pedúnculo floral une la flor a la rama."
+            }
+        ]
+      }
+      
+    ]
+  }
+  
+]
+}

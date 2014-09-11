@@ -1,0 +1,123 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="Fitologia.HubPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Fitologia"
+    xmlns:data="using:Fitologia.Data"
+    xmlns:common="using:Fitologia.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- Grid-appropriate 310 by 260 pixel item template as seen in section 4 -->
+       <DataTemplate x:Key="Standard310x260ItemTemplate">
+            <Grid Height="50" Width="310" Margin="5,10,5,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="0,10,0,0">
+                    <TextBlock Text="{Binding Title}" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="dataSubPartes">
+            <StackPanel>
+                <Image Source="{Binding ImagePath}" Width="100" Height="100" Stretch="Fill"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <!--
+    This grid acts as a root panel for the page.
+  -->
+    <Grid Background="Teal">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Hub SectionHeaderClick="Hub_SectionHeaderClick">
+            <Hub.Header>
+                <!-- Back button and page title -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button  x:Name="backButton" Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        Margin="-1,-1,39,0" 
+                        VerticalAlignment="Top"
+                        Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+                        AutomationProperties.Name="Back"
+                        AutomationProperties.AutomationId="BackButton"
+                        AutomationProperties.ItemType="Navigation Button"/>
+                    <TextBlock x:Name="pageTitle" Text="Partes de las plantas" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
+                </Grid>
+            </Hub.Header>
+            <HubSection Width="280" Margin="0,0,80,0">
+                <HubSection.Background>
+                    <ImageBrush ImageSource="Assets/MediumGray.png" Stretch="UniformToFill" />
+                </HubSection.Background>
+            </HubSection>
+           
+
+            <!--<HubSection DataContext="{Binding Groups}" d:DataContext="{Binding Groups[0], Source={d:DesignData Source=/DataModel/Partes.json, Type=data:SampleDataSource}}"-->
+            
+            <HubSection DataContext="{Binding Groups[0]}" d:DataContext="{Binding Groups[0], Source={d:DesignData Source=/DataModel/Partes.json, Type=data:SampleDataSource}}"
+                        x:Uid="SectionPartesHeader" Header="" Padding="40,40,40,32">
+                <DataTemplate>
+                    <GridView
+                        x:Name="itemGridView"
+                        ItemsSource="{Binding Items}"
+                        Margin="-9,-14,0,0"
+                        AutomationProperties.AutomationId="ItemGridView"
+                        AutomationProperties.Name="Items In Group"
+                        ItemTemplate="{StaticResource Standard310x260ItemTemplate}"
+                        SelectionMode="Single"
+                        IsSwipeEnabled="True"
+                        IsItemClickEnabled="True"
+                        ItemClick="ItemView_ItemClick">
+                    </GridView>
+                </DataTemplate>
+               
+            </HubSection>
+           
+        </Hub>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="100">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="130"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="270"/>
+                    <RowDefinition Height="105"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Image x:Name="imgGral" Source="Assets/Pag11.jpg" Grid.ColumnSpan="5" Margin="0,0,0,10" Stretch="Fill" />
+                <GridView Grid.Row="1" ItemTemplate="{StaticResource dataSubPartes}"   x:Name="gridSubPartes" Grid.ColumnSpan="5" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionChanged="gridSubPartes_SelectionChanged">
+                    
+                </GridView>
+                <!--<Image Source="Assets/MediumGray.png" Grid.Row="1" Stretch="Fill"/>
+                            <Image Source="Assets/MediumGray.png" Grid.Row="1" Grid.Column="2" Stretch="Fill"/>
+                            <Image Source="Assets/MediumGray.png" Grid.Row="1" Grid.Column="4" Stretch="Fill"/>-->
+                <TextBlock Style="{StaticResource TitleTextBlockStyle}" Grid.Row="2" Grid.ColumnSpan="5"  Margin="0,15,0,0"
+                                    x:Name="txtSubTitle" x:Uid="Description" Text="Las plantas:"/>
+                <TextBlock Style="{StaticResource BodyTextBlockStyle}" Grid.Row="3" Grid.ColumnSpan="5"
+                                    x:Name="txtDescription" Text="Las plantas son seres vivos que producen su propio alimento mediante el proceso de la fotosíntesis. Ellas captan la energía de la luz del sol a través de la clorofila y convierten el dióxido de carbono y el agua en azúcares que utilizan como fuente de energía."/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

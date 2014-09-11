@@ -1,0 +1,130 @@
+﻿{
+    "Temas":
+    [
+        {
+            "Id":"Tema 01",
+            "Titulo":"Características de las Plantas",
+            "Descripcion":"",
+            "Imagen":"",
+            "Subtitulos":[
+                {
+                    "Id":"Sub 01",
+                    "Titulo":"Introducción",
+                    "Contenido":[
+                        {
+                            "text":"Las plantas son organismos autosuficientes pertenecientes al mundo vegetal que pueden habitar en la tierra o en el agua."
+                        },
+                        {
+                            "text":"Existen más de 300.000 especies de plantas, de las cuales más de 250.000 producen flores. A diferencia de los animales, que necesitan digerir alimentos ya elaborados, las plantas son capaces de producir sus propios alimentos a través de un proceso químico llamador fotosíntesis."
+                        },
+                        {
+                            "text":"La fotosíntesis consiste básicamente en la elaboración de azúcar a partir del C02 (Dióxido de Carbono) minerales y agua con la ayuda de la luz solar."
+                        },
+                        {
+                            "text":"Resultante de este proceso, es el oxígeno, un producto de deshecho, que proviene de la descomposición del agua. El oxígeno, que se forma por la reacción entre el CO2 y el agua, es expulsado de la planta a través de las estomas de las hojas. Para hace la fotosíntesis se necesita la energía que toma la planta del sol."
+                        },
+                        {
+                            "text":"Las plantas presentan formas muy diversas, algunas las llamamos árboles; otras las conocemos como hierbas; otras presenta una forma arbustiva; algunas se conocen como llamas o simplemente como flores. De acuerdo a su altura, a que sean más blandas o más duras, al uso que hacemos de las mismas, etc, las llamamos con nombres diferentes."
+                        }
+                    ],
+                    "Imagenes":[
+                        {
+                            "url":"ms-appx:///Assets/Image/La_Fotosintesis.png"
+                        }
+                    ]
+                },
+                {
+                    "Id":"Sub 02",
+                    "Titulo":"Evolución de las Plantas",
+                    "Contenido":[
+                        {
+                            "text":"Las plantas siguieron evolucionando a medida que aladian oxígeno a la atmosfera. Fueron capaces de desarrollar las semillas. Las plantas con semillas las llamamos espermatofitos. Las más primitivas todavía no encerraban las semillas dentro de un fruto y se conocen como gimnospermas o 'plantas sin floares'. Las plantas más evolucionadas son la angiospermas o 'plantas con flores' que son aquellas que producen semillas."
+                        },
+                        {
+                            "text":"Todos estos organismos han contribuido y siguen contribuyendo a crear las condiciones adecuadas para que la vida sea posible en la Tierra. Gracias a los seres vivos que producen oxígeno, no solamente nos resulta posible respirar. También de una forma indirecta, estos mismos seres  han contribuido a la formación de la capa de ozono, un gas que se produce por la acción de la luz solar sobre el oxígeno. Esta capa nos protege de los perniciosos rayos ultravioleta."
+                        },
+                        {
+                            "text":"Otra consecuencia de la fotosíntesis es la disminución del dióxido de carbono, un gas que, al acumularse eleva la temperatura de la atmósfera porque retiene el calor de los rayos solares produciendo el famoso y fatal efecto \"invernadero\"."
+                        },
+                        {
+                            "text":"Las plantas nos han protegido durante muchos milenios del 'calentamiento global' al absorber el exceso de dióxido de carbono. Lamentablemente, la combustión de combustibles fósiles han aumentado los niveles de este gas tan espectacularmente que las propias plantas, cada vez menos importantes en números y variedad, ya no son capaces de solucionar el problema de un planeta cada vez más caliente."
+                        }
+                    ],
+                    "Imagenes":[
+                        {
+                            "url":"ms-appx:///Assets/Image/Evolucion Plantas.jpg"
+                        }
+                    ]
+                },
+                {
+                    "Id":"Sub 03",
+                    "Titulo":"Importancia de las Plantas",
+                    "Contenido":[
+                        {
+                            "text":"Las plantas son imprescindibles para el funcionamiento de la vida tal como la concebimos desde un punto de vista humano. Ellas son las responsables del oxígeno que respiramos, de los alimentos que comemos."
+                        },
+                        {
+                            "text":"De ellas se extraen tanto curativas como letales venenos. Muchos de los vestidos que nos protegen del frío, de los jabones que nos limpian, de las pinturas que decoran nuestro hogar o de los numerosos productos con que se abastece la industria tienen un origen  en los vegetales."
+                        },
+                        {
+                            "text":"Las plantas sujetan la tierra y la defienden contra los factores erosivos de la naturaleza, como la lluvia y el viento. Las plantas nos pueden proporcionar sombra, cobijo y belleza. La vida en la Tierra no sería lo mismo sin la presencia de las plantas."
+                        }
+                    ],
+                    "Imagenes":[
+                        {
+                            "url":"ms-appx:///Assets/Image/Importancia01.jpeg"
+                        },
+                        {
+                            "url":"ms-appx:///Assets/Image/Importancia02.jpg"
+                        },
+                        {
+                            "url":"ms-appx:///Assets/Image/Importancia03.jpg"
+                        }
+                    ]
+                },
+                {
+                    "Id":"Sub 04",
+                    "Titulo":"El Cultivos de las Plantas",
+                    "Contenido":[
+                        {
+                            "text":"El Descubrimiento de la agricultura, o cultivo de las plantas nació hace más de 9000 años en los valles del Éufrates y trigris, lo que sería la zona que ocupan hoy los países de Irak, Siria o sur de Turquía. Posteriormente, unos 7000 años antes AC, se desarrolló ampliamente en el valle del Nilo."
+                        },
+                        {
+                            "text":"La domesticación de las plantas supuso un paso gigantesco para la Humanidad. El hombre consiguió liberarse del esfuerzo diario de la caza o de la búsqueda de alimentos. Hasta ahora los hombres eran nómadas es decir no podían vivir en un sitio fijo. La agricultura permitió que el hombre se hiciera sedentario, es decir que pudiera vivir en el mismo sitio."
+                        },
+                        {
+                            "text":"La agricultura permitió que el hombre se hiciera sedentario, es decir que pudiera vivir en el mismo sitio. La agricultura permitió producir y almacenar alimentos, lo que facilito la distribución del trabajo. Mientras unos trabajadores podían trabajar la tierra, otros podían dedicarse a otros menesteres. Todo ello permitió el nacimiento de la Cultura y de la Civilización."
+                        },
+                        {
+                            "text":"En la actualidad, casi el 50% de los trabajadores del mundo se dedican al cultivo de las plantas. La agricultura sigue alimentando a la Humanidad y constituye prácticamente la única fuente directa o indirecta de la producción de alimentos. Solamente pequeñas poblaciones escondidas en la profundidad de los bosques siguen manteniendo primitivos métodos de recolección y caza como método de subsistencia."
+                        },
+                        {
+                            "text":"Además de producir alimentos, las plantas también son cultivadas en jardinería por su belleza. Cada vez tiene más importancia los mini huertos, incluso en las grandes ciudades, como una manera de producir alimentos ecológicos."
+                        }
+                    ],
+                    "Imagenes":[
+                        {
+                            "url":"ms-appx:///Assets/Image/Cultivo.jpg"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Id":"Tema 02",
+            "Titulo":"Partes de las Plantas",
+            "Descripcion":"",
+            "Imagen":"",
+            "Subtitulos":[
+            ]
+        },
+        {
+            "Id":"Tema 03",
+            "Titulo":"Tipos de Plantas",
+            "Descripcion":"",
+            "Imagen":"",
+            "Subtitulos":[
+            ]
+        }
+    ]
+}
